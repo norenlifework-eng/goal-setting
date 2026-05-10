@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>逆算で達成する！目標設定ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6f0;
+    --warm-white: #fff9f4;
+    --terracotta: #c97c5d;
+    --terracotta-light: #e8a88e;
+    --terracotta-pale: #f5e6df;
+    --sage: #7a9e8e;
+    --sage-light: #a8c4b8;
+    --sage-pale: #e8f0ec;
+    --mustard: #d4a853;
+    --mustard-pale: #fdf3dc;
+    --brown: #5c3d2e;
+    --brown-light: #c4a898;
+    --text-main: #3d2b1f;
+    --text-sub: #7a5c4a;
+    --text-light: #a88c7c;
+    --border: #e8d8cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background: var(--cream);
+    color: var(--text-main);
+    line-height: 2;
+  }
+
+  .cover {
+    background: var(--terracotta);
+    padding: 72px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    padding: 5px 18px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .cover h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .cover-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+
+  .intro {
+    background: var(--warm-white);
+    padding: 52px 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro-name {
+    display: inline-block;
+    background: var(--sage-pale);
+    color: var(--sage);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 18px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+  }
+
+  .intro p {
+    font-size: 15px;
+    line-height: 2.2;
+    color: var(--text-sub);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .intro strong { color: var(--terracotta); font-weight: 700; }
+
+  .profile-section {
+    margin: 0 auto 36px;
+    max-width: 480px;
+  }
+
+  .profile-section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--terracotta);
+    text-align: center;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .profile-section-title::before,
+  .profile-section-title::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--terracotta-light);
+  }
+
+  .profile-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .profile-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 11px 24px;
+    font-size: 14px;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .step-section {
+    padding: 64px 0 56px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--terracotta-pale);
+    color: var(--terracotta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  .step-section h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.5;
+    margin-bottom: 36px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--terracotta-pale);
+  }
+
+  .section-label {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--sage);
+    margin: 36px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--sage-pale);
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 2.2;
+    color: var(--text-sub);
+    margin-bottom: 18px;
+  }
+
+  .callout {
+    background: var(--mustard-pale);
+    border-left: 3px solid var(--mustard);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 28px 0;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--text-main);
+  }
+
+  .callout strong { color: var(--brown); font-weight: 700; }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+
+  .compare-table th {
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .compare-table th:first-child {
+    background: #f5e8e4;
+    color: #b05540;
+    border-radius: 8px 0 0 0;
+  }
+
+  .compare-table th:last-child {
+    background: var(--sage-pale);
+    color: var(--sage);
+    border-radius: 0 8px 0 0;
+  }
+
+  .compare-table td {
+    padding: 14px 16px;
+    line-height: 1.8;
+    color: var(--text-sub);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compare-table td:first-child { background: #fdf6f4; }
+  .compare-table td:last-child {
+    background: #f6faf8;
+    font-weight: 500;
+    color: var(--text-main);
+  }
+
+  .merit-caution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+
+  @media (max-width: 560px) {
+    .merit-caution-grid { grid-template-columns: 1fr; }
+    .cover h1 { font-size: 26px; }
+  }
+
+  .merit-box, .caution-box {
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .merit-box {
+    background: var(--sage-pale);
+    border: 1px solid var(--sage-light);
+  }
+
+  .caution-box {
+    background: var(--terracotta-pale);
+    border: 1px solid var(--terracotta-light);
+  }
+
+  .box-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .merit-box .box-label { color: var(--sage); }
+  .caution-box .box-label { color: var(--terracotta); }
+  .merit-box p, .caution-box p { font-size: 14px; margin: 0; color: var(--text-sub); }
+
+  .example-box {
+    background: var(--warm-white);
+    border: 1.5px dashed var(--brown-light);
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin: 28px 0;
+    position: relative;
+  }
+
+  .example-label {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--terracotta);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 14px;
+    border-radius: 20px;
+  }
+
+  .example-box p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-main);
+    line-height: 2;
+  }
+
+  .flow-visual {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 20px;
+    margin: 28px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .flow-node { text-align: center; min-width: 80px; }
+
+  .flow-node-box {
+    background: var(--terracotta-pale);
+    border: 1.5px solid var(--terracotta-light);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 4px;
+  }
+
+  .flow-node-box.goal {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: #fff;
+  }
+
+  .flow-node-sub { font-size: 11px; color: var(--text-light); }
+  .flow-arrow { color: var(--terracotta-light); font-size: 20px; flex-shrink: 0; }
+
+  .monthly-list {
+    margin: 16px 0 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .monthly-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 20px;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-sub);
+  }
+
+  .monthly-row:last-child { border-bottom: none; }
+
+  .month-badge {
+    flex-shrink: 0;
+    background: var(--mustard-pale);
+    border: 1px solid var(--mustard);
+    color: var(--brown);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    min-width: 56px;
+    text-align: center;
+  }
+
+  .month-badge.goal-month {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: #fff;
+  }
+
+  .summary-section {
+    background: var(--terracotta);
+    padding: 64px 32px;
+  }
+
+  .summary-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .summary-table th {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  .summary-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+    line-height: 1.8;
+    vertical-align: top;
+  }
+
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table td:first-child { font-weight: 700; white-space: nowrap; }
+
+  .closing {
+    background: var(--warm-white);
+    padding: 64px 32px 72px;
+    text-align: center;
+  }
+
+  .closing-inner { max-width: 520px; margin: 0 auto; }
+
+  .closing h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px;
+    color: var(--text-main);
+    margin-bottom: 20px;
+  }
+
+  .closing p {
+    color: var(--text-sub);
+    font-size: 14px;
+    line-height: 2.2;
+    margin-bottom: 12px;
+  }
+
+  .closing-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--terracotta-light);
+    margin: 28px auto;
+    border-radius: 2px;
+  }
+
+  .instagram-link {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--terracotta);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 11px 28px;
+    border-radius: 24px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-badge">GOAL SETTING GUIDE</div>
+  <h1>逆算で達成する！<br>目標設定ガイド</h1>
+  <p class="cover-sub">これを読めば、目標設定がひとりでできるようになる</p>
+</div>
+
+<div class="intro">
+  <div class="profile-section">
+    <div class="profile-section-title">のれん 3行自己紹介</div>
+    <div class="profile-cards">
+      <div class="profile-card">🌿 自律神経失調症 → フリーランス</div>
+      <div class="profile-card">🐱 ねこ・お酒・映画・本が大好き</div>
+      <div class="profile-card">📖 自己理解講座を運営中</div>
+    </div>
+  </div>
+
+  <p>
+    目標を立てても、いつの間にか忘れてしまうことはないでしょうか？<br><br>
+    今回は私がほんとうにやって良かった<br>
+    <strong>正しい目標設定</strong>を紹介します！<br><br>
+    ではスタート！
+  </p>
+</div>
+
+<div class="container">
+
+  <div class="step-section">
+    <div class="step-tag">STEP ① 🏁</div>
+    <h2>3か月後の目標を、具体的に書く</h2>
+
+    <div class="section-label">ポイント① なぜ3か月なのか</div>
+
+    <p>「1年後までに成功する」「3年後には夢を叶える」<br>
+    こういった目標を立てたことはないでしょうか？🧐</p>
+
+    <p>実はこれには大きな落とし穴があります。<br>
+    人間の脳は、遠すぎる未来を自分事としてリアルにイメージすることができません🙅‍♀️</p>
+
+    <p>「1年後の自分」を思い描こうとすると、<br>どこかぼんやりとして、他人事のように感じてしまうのです。</p>
+
+    <div class="callout">
+      💡 <strong>人間がリアルにイメージできる未来は、3か月が限界</strong>
+    </div>
+
+    <div class="section-label">ポイント② 「具体的」とはどういうことか</div>
+
+    <p>曖昧な目標は「達成したかどうか」が分からないため、<br>いつまでも「まだ足りない気がする…」と感じ続けることになります。</p>
+
+    <table class="compare-table">
+      <tr>
+        <th>❌ 曖昧な書き方</th>
+        <th>✅ 具体的な書き方</th>
+      </tr>
+      <tr>
+        <td>SNSのフォロワーを増やしたい</td>
+        <td>3か月後にフォロワーが5,000人になっている</td>
+      </tr>
+      <tr>
+        <td>英語が話せるようになりたい</td>
+        <td>英語で1分間の自己紹介ができる</td>
+      </tr>
+      <tr>
+        <td>勉強を頑張る</td>
+        <td>模試で数学80点を取る</td>
+      </tr>
+    </table>
+
+    <div class="merit-caution-grid">
+      <div class="merit-box">
+        <span class="box-label">✨ メリット</span>
+        <p>「達成したかどうか」が明確になる</p>
+      </div>
+      <div class="caution-box">
+        <span class="box-label">⚠️ やらないと…</span>
+        <p>努力が空回りして、3か月後に「頑張ったけど何も変わらなかった」という感覚になる</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <span class="example-label">📝 記入例</span>
+      <p>TOEIC 700点</p>
+    </div>
+  </div>
+
+  <div class="step-section">
+    <div class="step-tag">STEP ② 🔍</div>
+    <h2>今の状態を、正直に書き出す</h2>
+
+    <div class="section-label">ポイント① なぜ「現状の把握」が必要なのか</div>
+
+    <p>目標（行きたい場所）が決まりました👀</p>
+
+    <p>次に必要なのは「今、自分がどこにいるか」を正確に把握することです。<br>
+    この2点が揃って初めて、「何をすればいいか」が見えてきます。</p>
+
+    <div class="section-label">ポイント② 「正直」が重要な理由</div>
+
+    <p>現状を書き出すとき、多くの人が無意識のうちに自分を良く見せようとしてしまいます。</p>
+
+    <p>「まあ、それなりにできてはいるし…」と甘く見積もってしまうのです🙅‍♀️</p>
+
+    <div class="callout">
+      💡 <strong>現状を甘く見積もると、必要な努力量を見誤る</strong>
+    </div>
+
+    <div class="merit-caution-grid">
+      <div class="merit-box">
+        <span class="box-label">✨ メリット</span>
+        <p>「現実的に達成できる計画」が立てられるようになる</p>
+      </div>
+      <div class="caution-box">
+        <span class="box-label">⚠️ やらないと…</span>
+        <p>毎回計画が崩れて、目標設定そのものへの信頼を失っていく</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <span class="example-label">📝 記入例</span>
+      <p>TOEIC 500点</p>
+    </div>
+  </div>
+
+  <div class="step-section">
+    <div class="step-tag">STEP ③ 🍋</div>
+    <h2>目標と今の差（ギャップ）を書く</h2>
+
+    <div class="section-label">ポイント① ギャップを書くと、何が見えてくるのか</div>
+
+    <p>STEP①で目標、STEP②で現状が明らかになりました！<br>
+    この2つの「差」を書き出すのがSTEP③です。</p>
+
+    <p>これを書くと、不思議なことが起こります🧙</p>
+
+    <p>「目標を達成するために、何をするべきか」が自然と見えてきます。</p>
+
+    <div class="callout">
+      💡 <strong>ギャップは「敵」ではありません。「やるべきことの正体」です。</strong><br>
+      差が大きいということは、それだけ伸びしろがあるということ☺️
+    </div>
+
+    <div class="merit-caution-grid">
+      <div class="merit-box">
+        <span class="box-label">✨ メリット</span>
+        <p>「何をすればいいか分からない」という霧が晴れる。<br>行動計画の精度が格段に上がる✌️</p>
+      </div>
+      <div class="caution-box" style="visibility:hidden;"></div>
+    </div>
+
+    <div class="example-box">
+      <span class="example-label">📝 記入例</span>
+      <p>200点（理想と現実の点数のギャップ）</p>
+    </div>
+  </div>
+
+  <div class="step-section">
+    <div class="step-tag">STEP ④ ⏪</div>
+    <h2>3か月後から逆算して、行動を決める</h2>
+
+    <div class="section-label">「結果」ではなく「行動」を決めよう</div>
+
+    <div class="callout">
+      💡 <strong>結果は、自分でコントロールできません。</strong><br>
+      しかし「行動」は、100%自分でコントロールできます。<br>
+      だから決めるべきは、「結果」ではなく「行動」なのです。
+    </div>
+
+    <div class="section-label">なぜ「逆算」なのか</div>
+
+    <p>逆算は「ゴールから引き算する」ので、常にゴールとの距離感が明確です👀</p>
+
+    <div class="flow-visual">
+      <div class="flow-node">
+        <div class="flow-node-box goal">🏁 3か月後</div>
+        <div class="flow-node-sub">ゴール</div>
+      </div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-node">
+        <div class="flow-node-box">2か月後</div>
+        <div class="flow-node-sub">どこまで？</div>
+      </div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-node">
+        <div class="flow-node-box">1か月後</div>
+        <div class="flow-node-sub">何が必要？</div>
+      </div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-node">
+        <div class="flow-node-box">📌 今月</div>
+        <div class="flow-node-sub">何をする？</div>
+      </div>
+    </div>
+
+    <div class="merit-caution-grid">
+      <div class="merit-box">
+        <span class="box-label">✨ メリット</span>
+        <p>「これをやる意味があるのか」という迷いが消え、行動の質が上がる</p>
+      </div>
+      <div class="caution-box" style="visibility:hidden;"></div>
+    </div>
+
+    <div class="example-box">
+      <span class="example-label">📝 記入例</span>
+      <div class="monthly-list">
+        <div class="monthly-row">
+          <span class="month-badge goal-month">8月 🏁</span>
+          <span>TOEIC 700点 達成・本番受験</span>
+        </div>
+        <div class="monthly-row">
+          <span class="month-badge">7月</span>
+          <span>模擬試験を2回受けてスコア確認 / リスニング強化</span>
+        </div>
+        <div class="monthly-row">
+          <span class="month-badge">6月</span>
+          <span>金フレ2周目完了 / 公式問題集1冊やりきる</span>
+        </div>
+        <div class="monthly-row">
+          <span class="month-badge">5月 📌</span>
+          <span>金フレ1周目 / 毎日30分リスニング習慣をつくる</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-section">
+    <div class="step-tag">STEP ⑤ 📅</div>
+    <h2>今週やることを決める</h2>
+
+    <div class="section-label">計画は必ず崩れる。それでも決める理由</div>
+
+    <p>計画は、思い通りに進みません。</p>
+
+    <p>体調を崩す日も、急な予定も、やる気が出ない日も来ます。</p>
+
+    <p>しかし、だからといって「計画を立てない」という選択はしないようにしています。<br>
+    なぜなら計画を立てないと、人は行動できないからです。</p>
+
+    <div class="callout">
+      💡 <strong>計画を立てないと、人は行動できない🙅‍♀️</strong>
+    </div>
+
+    <div class="merit-caution-grid">
+      <div class="merit-box">
+        <span class="box-label">✨ メリット</span>
+        <p>「目標に向かって動いた一週間」になる。<br>小さな達成感が次の推進力になる</p>
+      </div>
+      <div class="caution-box">
+        <span class="box-label">⚠️ やらないと…</span>
+        <p>日々の「やらなければならないこと」に追われて、<br>目標に向かう時間が気づけばゼロに💦</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <span class="example-label">📝 記入例</span>
+      <p>今週やること：<br>・金フレ一周する<br>・参考書を30ページやる</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="summary-section">
+  <div class="summary-title">📋 まとめ</div>
+  <table class="summary-table" style="max-width:720px; margin:0 auto;">
+    <tr>
+      <th>STEP</th>
+      <th>内容</th>
+      <th>ポイント</th>
+    </tr>
+    <tr>
+      <td>🏁 ①</td>
+      <td>3か月後の目標を具体的に書く</td>
+      <td>数字か明確な状態で書く</td>
+    </tr>
+    <tr>
+      <td>🔍 ②</td>
+      <td>今の状態を正直に書き出す</td>
+      <td>事実ベースで</td>
+    </tr>
+    <tr>
+      <td>🍋 ③</td>
+      <td>目標と今の差（ギャップ）を書く</td>
+      <td>ギャップ＝やるべきことの正体</td>
+    </tr>
+    <tr>
+      <td>⏪ ④</td>
+      <td>逆算して行動を決める</td>
+      <td>○行動を決める　×成果を決める</td>
+    </tr>
+    <tr>
+      <td>📅 ⑤</td>
+      <td>今週やることを決める</td>
+      <td>完璧でなくてもOK。<br>計画を立てること自体が大事</td>
+    </tr>
+  </table>
+</div>
+
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-divider"></div>
+    <h3>🔥 目標設定は、才能ではなく技術です。</h3>
+    <p>この5つのSTEPは、どんな目標にも、何度でも使えます☺️</p>
+    <p>最初はうまくいかないことがあるかもしれません。</p>
+    <p>それはまだ慣れていないだけです。</p>
+    <p>繰り返すうちに、自分だけのペースと精度が身についていきます。</p>
+    <div class="closing-divider"></div>
+    <p style="font-size:14px; color:var(--text-light);">やってみた感想などは、ぜひDMにいただけると嬉しいです🍒</p>
+    <a class="instagram-link" href="https://www.instagram.com/noren_journal/" target="_blank">📸 @noren_journal</a>
+  </div>
+</div>
+
+</body>
+</html>
